@@ -23,7 +23,7 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 
 - créer un Controller BonjourController.java avec les annotations
 
-- dispatcher-servlet.xml ajouter <component-scan> pour activer la configuration par annotations 
+- dispatcher-servlet.xml ajouter component-scan pour activer la configuration par annotations 
 
 - dispatcher-servlet.xml ajouter la déclaration du bean "InternalResourceViewResolver" qui permet d'indiquer où chercher les ressources
 
