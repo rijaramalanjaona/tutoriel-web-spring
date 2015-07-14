@@ -11,6 +11,8 @@
     
     <!-- "component-scan" active la configuration par annotations -->
 	<context:component-scan base-package="com.rija.dev" />
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!-- "messageSource" permet de charger les messages internationalisés dans des fichiers "messages_xx.properties" contenus à la racine du classpath -->
 	<bean id="messageSource"
@@ -28,4 +30,20 @@
             <value>.jsp</value>
         </property>
     </bean>
+    
+    <!-- déclarer l'utilisation de la ressource JDBC -->
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/dsMonApplication" />
+    </bean>
+
+	<!-- utilise la ressource JDBC et le fichier "persistence.xml" pour aboutir à la création du "EntityManager" qui est utilisé dans la DAO -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+	<!-- instancier le gestionnaire de transaction et lui associer la fabrique de "EntityManager" -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    
 </beans>
