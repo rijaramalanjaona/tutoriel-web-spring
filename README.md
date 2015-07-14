@@ -36,7 +36,7 @@ From http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hib
 
 
 #################################################################################
-                                  HSQLDB
+                                HSQLDB
 #################################################################################								  
 - download HSQLDB : http://sourceforge.net/projects/hsqldb/?source=typ_redirect
 - extract zip dans C:
@@ -58,7 +58,7 @@ From http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hib
 	
 	
 #################################################################################
-                 Parametrage ressource JDBC dans tomcat
+                       Parametrage ressource JDBC dans tomcat
 #################################################################################	
 
 - server.xml : ajout de GlobalNamingResources (création de la ressource DataSource "jdbc/dsMaBase")
