@@ -100,3 +100,41 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 - création de la vue vues/listeCourses.jsp
 
 - fermer le runManagerSwing de HSQLDB avant de lancer l'application http://localhost:8080/tutoriel-web-spring/afficherListeCourses
+
+
+#################################################################################
+                      Création de données en base
+#################################################################################
+
+- pom.xml : ajout de dépendances pour valider le formulaire :
+	- validation-api
+	- hibernate-validator
+	
+- /WEB-INF/dispatcher-servlet.xml : ajout de ligne < mvc:annotation-driven > pour activer les annotations de validation de formulaire
+
+- ajout de libellés dans messages_fr.properties
+
+- création du formulaire "CreationForm.java" dans com.rija.dev.controller qui utilise les annotations "NotEmpty" et "Pattern" pour indiquer les contraintes de validation
+
+- IListeCoursesDAO : ajout de la méthode void creerCourse(final Course pCourse);
+
+- IListeCoursesService : ajout de la méthode void creerCourse(final String pLibelle, final Integer pQuantite);
+
+- ListeCoursesDAO : implémentation de void creerCourse(final Course pCourse);
+
+- ListeCoursesService : implémentation de void creerCourse(final String pLibelle, final Integer pQuantite);
+
+- Création du controller CreerListeCoursesController
+	- méthode afficher qui retourne "creation" : 
+		- place la liste des courses dans l'attribut "listeCourses"
+		- initialise le formulaire "creation" s'il n'est pas déjà présent dans l'attribut "creation"
+		
+	- méthode creer qui retourne afficher(pModel) :
+		- appelle la méthode de création en base de données s'il n'y a pas d'erreurs dans la validation
+		- appelle simplement la méthode "afficher" pour l'affichage de la page. 
+		
+- création de la /vues/creation.jsp :
+	- formulaire
+	- messages d'erreur
+	
+- test : http://localhost:8080/tutoriel-web-spring/afficherCreationListeCourses
