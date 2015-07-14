@@ -138,3 +138,30 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 	- messages d'erreur
 	
 - test : http://localhost:8080/tutoriel-web-spring/afficherCreationListeCourses
+ 
+
+#################################################################################
+                       Suppression de données en base
+#################################################################################
+
+- ajout de libellés dans messages_fr.properties
+
+- IListeCoursesDAO : ajout de la méthode void supprimerCourse(final Course pCourse);
+
+- IListeCoursesService : ajout de la méthode void supprimerCourse(final Integer pIdCourse);
+
+- ListeCoursesDAO : implémentation de void supprimerCourse(final Course pCourse);
+
+- ListeCoursesService : implémentation de void supprimerCourse(final Integer pIdCourse);
+
+- Création du controller SupprimerListeCoursesController
+	- méthode afficher qui retourne "suppression" : 
+		- place la liste des courses dans l'attribut "listeCourses"
+		
+	- méthode supprimer qui retourne afficher(pModel) :
+		- utilise le paramètre "idCourse" de la requête pour appeler la méthode "supprimerCourse" du service
+		- appelle simplement la méthode "afficher" pour l'affichage de la page.
+		
+- création de la /vues/suppression.jsp
+
+- test : http://localhost:8080/tutoriel-web-spring/afficherSuppressionListeCourses
