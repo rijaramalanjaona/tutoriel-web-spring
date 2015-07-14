@@ -38,7 +38,6 @@ From http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hib
 #################################################################################
                                   HSQLDB
 #################################################################################								  
-
 - download HSQLDB : http://sourceforge.net/projects/hsqldb/?source=typ_redirect
 - extract zip dans C:
 - lancement : C:\hsqldb-2.3.3\hsqldb\bin\runManagerSwing.bat
