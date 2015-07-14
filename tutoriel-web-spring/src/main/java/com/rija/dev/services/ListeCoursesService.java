@@ -28,4 +28,12 @@ public class ListeCoursesService implements IListeCoursesService {
 
         dao.creerCourse(lCourse);
     }
+    
+    @Transactional
+    public void supprimerCourse(final Integer pIdCourse) {
+        final Course lCourse = new Course();
+        lCourse.setId(pIdCourse);
+
+        dao.supprimerCourse(lCourse);
+    }
 }

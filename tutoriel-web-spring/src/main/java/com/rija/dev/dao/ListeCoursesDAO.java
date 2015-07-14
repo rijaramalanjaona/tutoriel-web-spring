@@ -33,4 +33,9 @@ public class ListeCoursesDAO implements IListeCoursesDAO {
     public void creerCourse(final Course pCourse) {
         entityManager.persist(pCourse);
     }
+    
+    public void supprimerCourse(final Course pCourse) {
+        final Course lCourse = entityManager.getReference(Course.class, pCourse.getId());
+        entityManager.remove(lCourse);
+    }
 }
