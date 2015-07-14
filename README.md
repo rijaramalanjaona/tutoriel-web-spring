@@ -78,7 +78,7 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 - création du fichier src/main/resources/META-INF/persistence.xml pour indiquer que la persistance est réalisée grâce à Hibernate
 
 - ajout dans dispatcher-servlet.xml  : 
-	- <tx:annotation-driven transaction-manager="transactionManager" />
+	- <tx:annotation-driven transaction-manager="transactionManager"
 	- bean JndiObjectFactoryBean pour déclarer l'utilisation de la ressource JDBC
 	- bean LocalContainerEntityManagerFactoryBean utilise la ressource JDBC et le fichier "persistence.xml" pour aboutir à la création du "EntityManager" qui est utilisé dans la DAO
 	- bean JpaTransactionManager pemret d'instancier le gestionnaire de transaction et lui associer la fabrique de "EntityManager"
@@ -90,6 +90,8 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 - création de l'interface IListeCoursesService dans com.rija.dev.services
 
 - création de la classe ListeCoursesDAO dans com.rija.dev.dao
+
+- création de la classe ListeCoursesService dans com.rija.dev.services
 
 - création du controller AfficherListeCoursesController dans com.rija.dev.controller
 
