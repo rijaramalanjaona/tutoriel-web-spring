@@ -208,3 +208,28 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 	-  la variable "status" permet de nommer les champs du formulaire et de filtrer les messages d'erreur selon l'occurrence de la liste des courses. 
 	
 - test : http://localhost:8080/tutoriel-web-spring/afficherModificationListeCourses
+
+
+#################################################################################
+                            Menu avec les Tiles
+#################################################################################
+
+- pom.xml : ajout de dépendances Tiles
+	- tiles-jsp
+	- slf4j-log4j12
+
+- ajout de libellés dans messages_fr.properties
+	
+- /WEB-INF/dispatcher-servlet.xml : ajout en début de la déclaration des beans de
+	- UrlBasedViewResolver : utilise TilesView pour traiter les vues
+	- TilesConfigurer : charge la configuration dans le fichier /WEB-INF/tiles.xml
+	
+- création du fichier /WEB-INF/tiles.xml qui contient la définition des différents tiles
+
+- création de la /vues/page.jsp
+	- contient le squelette des pages (le "template" dans le fichier "tiles.xml")
+	- Le tag "tiles:insertAttribute" permet d'inclure les JSP contenant le corps de la page et définis dans le fichier "tiles.xml" 
+	
+- modification des JSP "listeCourses.jsp", "creation.jsp", "suppression.jsp" et "modification.jsp" pour ne garder que les parties dans la balise "body" 
+
+- test : http://localhost:8080/tutoriel-web-spring/afficherListeCourses
