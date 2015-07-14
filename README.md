@@ -1,7 +1,10 @@
 # tutoriel-web-spring
 
-Hello world from
-http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernate/
+From http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernate/
+
+#################################################################################
+                               Hello world
+#################################################################################
 
 - créer projet maven
 
