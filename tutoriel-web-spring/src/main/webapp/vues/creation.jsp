@@ -3,11 +3,11 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%-- <html>
     <head>
         <title><spring:message code="titre.creation.elementcourses"/></title>
     </head>
-    <body>
+    <body> --%>
         <form:form method="post" modelAttribute="creation" action="creerCreationListeCourses">
 			<spring:message code="creation.elementcourses.libelle.libelle" />
             <form:input path="libelle"/>
@@ -38,5 +38,5 @@
                 </c:forEach>
             </tbody>
         </table>
-    </body>
-</html>
+   <!--  </body>
+</html> -->

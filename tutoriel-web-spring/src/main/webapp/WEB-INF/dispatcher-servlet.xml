@@ -17,6 +17,20 @@
 	<!-- activer les annotations de validation de formulaire -->
 	<mvc:annotation-driven />
 
+	<!-- tiles: utilise TilesView pour traiter les vues -->
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">  
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />  
+    </bean>
+    
+    <!-- tiles : charge la configuration dans le fichier /WEB-INF/tiles.xml -->
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">  
+        <property name="definitions">  
+            <list>  
+                <value>/WEB-INF/tiles.xml</value>  
+            </list>  
+        </property>  
+    </bean>
+	
 	<!-- "messageSource" permet de charger les messages internationalisés dans des fichiers "messages_xx.properties" contenus à la racine du classpath -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
