@@ -165,3 +165,46 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 - création de la /vues/suppression.jsp
 
 - test : http://localhost:8080/tutoriel-web-spring/afficherSuppressionListeCourses
+
+
+#################################################################################
+                     Modification de données en base
+#################################################################################
+
+- Modification en masse de la quantité de liste de courses
+
+- ajout de libellés dans messages_fr.properties
+
+- création de ValidationMessages_fr.properties
+
+- IListeCoursesDAO : ajout de la méthode void modifierCourse(final Course pCourse);
+
+- IListeCoursesService : ajout de la méthode void modifierCourses(final List<Course> pListeCourses);
+
+- ListeCoursesDAO : implémentation de void modifierCourse(final Course pCourse);
+	- modifie une entité en bdd
+	- lève une exception uniquement si la requête modifie un nombre d'occurrences différent de 1
+
+- ListeCoursesService : implémentation de void modifierCourses(final List<Course> pListeCourses);
+	- parcourt les entités de la liste pour les passer en paramètre l'une après l'autre à la DAO
+	
+- création du formulaire ModificationForm.java dans com.rija.dev.controller 
+	- contenant une liste qui comporte l'annotation "@Valid". 
+	- cela provoquera la validation de chaque élément de la liste lorsque le formulaire sera validé en entrée de la méthode "modifier" du contrôleur
+
+- création de la classe ModificationCourse dans com.rija.dev.controller
+	- cette classe correspond à un élément de la liste contenue dans le formulaire "ModificationForm" ~= bean Course (quantite String avec les annotations)
+	- les annotations "NotEmpty" et "Pattern" comportent des valeurs "message" qui correspondent aux messages internationalisés contenus dans le fichier "ValidationMessages_fr.properties" 
+	
+- Création du controller ModifierListeCoursesController
+	- méthode afficher qui retourne "modification" : 
+		- place la liste des courses dans le formulaire
+		
+	- méthode modifier qui retourne afficher(pModel) :
+		- récupère la liste des courses du formulaire pour appeler la méthode de modification du service
+		- appelle simplement la méthode "afficher" pour l'affichage de la page.
+		
+- création de la /vues/modification.jsp
+	-  la variable "status" permet de nommer les champs du formulaire et de filtrer les messages d'erreur selon l'occurrence de la liste des courses. 
+	
+- test : http://localhost:8080/tutoriel-web-spring/afficherModificationListeCourses
