@@ -13,6 +13,9 @@
 	<context:component-scan base-package="com.rija.dev" />
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- activer les annotations de validation de formulaire -->
+	<mvc:annotation-driven />
 
 	<!-- "messageSource" permet de charger les messages internationalisés dans des fichiers "messages_xx.properties" contenus à la racine du classpath -->
 	<bean id="messageSource"
