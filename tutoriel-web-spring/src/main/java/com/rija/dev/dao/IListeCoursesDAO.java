@@ -10,4 +10,6 @@ public interface IListeCoursesDAO {
     void creerCourse(final Course pCourse);
     
     void supprimerCourse(final Course pCourse);
+    
+    void modifierCourse(final Course pCourse);
 }
