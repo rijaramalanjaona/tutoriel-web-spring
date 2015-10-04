@@ -65,11 +65,11 @@ From http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hib
 <Resource auth="Container" driverClassName="org.hsqldb.jdbcDriver"
                 maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/dsMaBase"
                 password="" type="javax.sql.DataSource" url="jdbc:hsqldb:file:C:\hsqldb-2.3.3\hsqldb\data\maBase"
-                username="sa" />
+                username="sa"
 
 - context.xml : ajout de ResourceLink pour associer la ressource jdbc/dsMaBase indiquée dans le fichier "server.xml" avec le nom "jdbc/dsMonApplication" que l'on utilisera dans l'application
 
-<ResourceLink name="jdbc/dsMonApplication" global="jdbc/dsMaBase" type="javax.sql.DataSource" />
+<ResourceLink name="jdbc/dsMonApplication" global="jdbc/dsMaBase" type="javax.sql.DataSource"
 
 #################################################################################
         Modification du projet afin d'inclure l'affichage des données
